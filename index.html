@@ -4,20 +4,22 @@
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
 
 
 
 	<style>
 
 		body {
-			background: #151C43;
+			background: #BEBCBC;
 			text-align: center;
-			font-family: 'Bebas Neue', cursive;
+			margin: 5%;
+			font-family: 'Staatliches', cursive;
 		}
 
 		
 		h1 {
-			color: #ffffff;
+			color: #5C4747;
 			font-weight: 800;
 		}
 
@@ -25,6 +27,9 @@
 
 		p {
 			font-weight: 600;
+			text-align: left;
+			color: #020202;
+
 		}
 
 		
@@ -72,20 +77,21 @@
 		.intro {
 			margin: 30px 0px;
 			font-weight: bold;
+			
 		}
 
 		#first {
 			margin-top: 10px;
-			color: #FFCD5D;
+			
 		}
 
 		#second {
-			color: #51DF70;
+			
 
 		}
 
 		#third {
-			color: #025F70;
+			
 			margin-bottom: 30px;
 		}
 
@@ -119,8 +125,8 @@
 
 
 		.done {
-			background: #12631E !important;
-			color: #00891E;
+			background: #373737 !important;
+			color: #848383;
 		}
 
 		.delete {
@@ -134,10 +140,10 @@
 <body>
 	<div class="container">
 		
-
+		<!-- Welcome Message -->
 		<div class="row">
 			<div class="intro col-12">
-				<h1>Work To-Dos</h1>
+				<h1>My <br>To-Do List</h1>
 				<div>
 					<div class="border1"></div>
 				</div>
@@ -145,18 +151,18 @@
 		</div>
 
 
-
+		<!-- User Instructions -->
 		<div class="row">
 			<div class="helpText col-12">
-				<p id="first">Enter text into the input field to add items to your list.</p>
-				<p id="second">Click the item to mark it as complete.</p>
-				<p id="third">Click the "X" to remove the item from your list.</p>
+				<p id="first">1. To add a task to your TO-DO list, enter text into the input field.</p>
+				<p id="second">2. When task is completed, simply click on that task to mark it as completed.</p>
+				<p id="third">3. To remove a task from your list, click the "X" button located on that task item.</p>
 			</div>
 		</div>
 
 
 
-		<!-- user input -->
+		<!-- User Input Area -->
 		<div class="row">
 			<div class="col-12">
 				<input id="userInput" type="text" placeholder="New item..." maxlength="27">

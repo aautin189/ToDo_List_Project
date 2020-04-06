@@ -1,3 +1,53 @@
+window.onload= restoreData;
+
+function restoreData(){
+	if(localStorage.getItem("appData")){
+	// document.body.innerHTML=localStorage.getItem("appData");
+	var listData = document.getElementById("toDoList");
+	listData.innerHTML= localStorage.getItem("appData");
+	restoreListeners();
+	}
+	
+}
+
+
+
+function restoreListeners(){
+	var listItems = document.getElementsByTagName("li");
+	listItems=[...listItems];
+	for(let li of listItems){
+		li.addEventListener("click",()=> crossOut(li));
+		var button = li.getElementsByTagName("button");
+		button=[...button];
+		button[0].addEventListener("click",()=>deleteListItem(li));
+	}
+
+	// COMPLETED TASK
+	// because it's in the function, it only adds it for new items
+	function crossOut(li) {
+		li.classList.toggle("done");	//using the DOM to toggle the "done" style class
+		saveData();
+	}
+
+
+	//ADD CLASS DELETE (DISPLAY: NONE)
+	function deleteListItem(li){
+		li.classList.add("delete")
+		saveData();
+	}
+}
+
+
+
+
+//saving to local storage
+function saveData(){
+	var listData = document.getElementById("toDoList");
+	localStorage.setItem("appData",listData.innerHTML);
+
+}
+
+
 
 // 1. ESTABLISH REFERENCE POINTS
 // create references to DOM elements we need to manipulate
@@ -49,6 +99,7 @@ function addListAfterKeypress(event) {
 
 
 
+
 // 4. CREATE LIST ITEM FOR NEW TASK
 //------------------------------------------------------//
 function createListElement() {
@@ -62,6 +113,7 @@ function createListElement() {
 	// because it's in the function, it only adds it for new items
 	function crossOut() {
 		li.classList.toggle("done");	//using the DOM to toggle the "done" style class
+		saveData();
 	}
 
 	li.addEventListener("click",crossOut);
@@ -83,8 +135,11 @@ function createListElement() {
 	//ADD CLASS DELETE (DISPLAY: NONE)
 	function deleteListItem(){
 		li.classList.add("delete")
+		saveData();
 	}
 	//END ADD CLASS DELETE
+	saveData();
+
 }
 //------------------------------------------------------//
 
